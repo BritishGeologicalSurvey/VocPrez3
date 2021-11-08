@@ -6,6 +6,6 @@ RUN pip install -r requirements.txt
 
 
 RUN rm -rf /app/*
-COPY ./app /app/app
+COPY ./vocprez /app/app
 
 EXPOSE 5000
