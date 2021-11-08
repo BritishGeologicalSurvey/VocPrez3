@@ -1,13 +1,11 @@
-FROM python:3.9.6-slim-buster
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
 
-WORKDIR /usr/app
-
-EXPOSE 5000
-
+## Install python-ags4
 COPY requirements.txt .
-
-RUN pip install -U pip
 RUN pip install -r requirements.txt
 
-COPY ./vocprez ./vocprez
 
+RUN rm -rf /app/*
+COPY ./app /app/app
+
+EXPOSE 5000
